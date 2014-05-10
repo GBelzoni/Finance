@@ -18,8 +18,12 @@ series = colnames(data)
 
 #Check if Integrated with adf-test
 cdata = apply(coredata(data),2,adf.test)
+cdata
 tableI1test = sapply(cdata, function(x){return(x$p.value)})
 tableI1test[tableI1test< 0.05]
+
+plot(data[,'AUD.USD'])
+adf.test(data[,'AUD.USD'])
 
 #Create models for EG CI regression
 combSeries = as.data.frame(combn(series,2))

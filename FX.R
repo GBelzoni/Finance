@@ -17,7 +17,14 @@ JPYUSDFutures = Quandl("OFDP/FUTURE_JY1",type='xts',start_date=start,end_date=en
 GBPUSDFutures = Quandl("OFDP/FUTURE_BP1",type='xts',start_date=start,end_date=end)
 CHFUSDFutures = Quandl("OFDP/FUTURE_SF1",type='xts',start_date=start,end_date=end)
 
-
+AUDUSD = 1/USDAUD
+colnames(AUDUSD)='AUD.USD'
+JPYUSD = 1/USDJPY
+colnames(JPYUSD)='JPY.USD'
+GBPUSD = 1/USDGBP
+colnames(GBPUSD)='GBP.USD'
+CHFUSD = 1/USDCHF
+colnames(CHFUSD)='CHF.USD'
 
 AUDFXandFutures = merge(AUDUSD, AUDUSDFutures,all=F)
 
@@ -28,14 +35,7 @@ plot(spread)
 Sys.Date()
 
 
-AUDUSD = 1/USDAUD
-colnames(AUDUSD)='AUD.USD'
-JPYUSD = 1/USDJPY
-colnames(JPYUSD)='JPY.USD'
-GBPUSD = 1/USDGBP
-colnames(GBPUSD)='GBP.USD'
-CHFUSD = 1/USDCHF
-colnames(CHFUSD)='CHF.USD'
+
 
 
 head(USDAUD)
@@ -55,4 +55,4 @@ plot(dfFX)
 
 cor(fxSeries)
 plot(as.zoo(fxSeries))
-head(fxSeries)
+tail(fxSeries)
